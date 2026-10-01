@@ -1,8 +1,9 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.protection;
 
 import java.util.UUID;
 
 import com.slxca.betterChestlock.block.entity.LockedChestBlockEntity;
+import com.slxca.betterChestlock.config.ModConfig;
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
 import net.minecraft.network.chat.Component;
 import net.minecraft.server.level.ServerLevel;
@@ -29,26 +30,26 @@ public class LockedChestProtection {
         });
     }
 
-public static boolean canAccess(LockedChestBlockEntity lockedChest, Player player) {
-    return isOperator(player) || lockedChest.isOwner(player) || isTrusted(lockedChest, player);
-}
-
-private static boolean isTrusted(LockedChestBlockEntity lockedChest, Player player) {
-    if (!(lockedChest.getLevel() instanceof ServerLevel serverLevel)) {
-        return false;
+    public static boolean canAccess(LockedChestBlockEntity lockedChest, Player player) {
+        return isOperator(player) || lockedChest.isOwner(player) || isTrusted(lockedChest, player);
     }
 
-    UUID owner = lockedChest.getOwner();
-    if (owner == null) {
-        return false;
+    private static boolean isTrusted(LockedChestBlockEntity lockedChest, Player player) {
+        if (!(lockedChest.getLevel() instanceof ServerLevel serverLevel)) {
+            return false;
+        }
+
+        UUID owner = lockedChest.getOwner();
+        if (owner == null) {
+            return false;
+        }
+
+        return TrustData.get(serverLevel.getServer()).isTrusted(owner, player.getUUID());
     }
 
-    return TrustData.get(serverLevel.getServer()).isTrusted(owner, player.getUUID());
-}
-
-private static boolean isOperator(Player player) {
-    return ModConfig.INSTANCE.opBypass
-            && player instanceof ServerPlayer serverPlayer
-            && serverPlayer.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER);
-}
+    private static boolean isOperator(Player player) {
+        return ModConfig.INSTANCE.opBypass
+                && player instanceof ServerPlayer serverPlayer
+                && serverPlayer.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER);
+    }
 }

@@ -2,7 +2,10 @@ package com.slxca.betterChestlock;
 
 import com.slxca.betterChestlock.block.ModBlocks;
 import com.slxca.betterChestlock.block.entity.ModBlockEntityTypes;
+import com.slxca.betterChestlock.command.ModCommands;
+import com.slxca.betterChestlock.config.ModConfig;
 import com.slxca.betterChestlock.item.ModItems;
+import com.slxca.betterChestlock.protection.LockedChestProtection;
 import net.fabricmc.api.ModInitializer;
 
 public class BetterChestlock implements ModInitializer {

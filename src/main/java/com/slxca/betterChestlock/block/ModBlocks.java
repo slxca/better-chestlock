@@ -1,7 +1,7 @@
 package com.slxca.betterChestlock.block;
 
 import com.slxca.betterChestlock.BetterChestlock;
-import com.slxca.betterChestlock.ModConfig;
+import com.slxca.betterChestlock.config.ModConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

@@ -1,12 +1,18 @@
- {
+{
   "schemaVersion": 1,
   "id": "better-chestlock",
   "version": "${version}",
-  "name": "better-chestlock",
-  "description": "",
-  "authors": [],
-  "contact": {},
-  "license": "All-Rights-Reserved",
+  "name": "Better Chestlock",
+  "description": "Locks your chests so only you and trusted players can open or break them. Owner protection, global player trust, hopper blocking, explosion resistance and simple server commands.",
+  "authors": [
+    "slxca"
+  ],
+  "contact": {
+    "homepage": "https://github.com/slxca/better-chestlock",
+    "sources": "https://github.com/slxca/better-chestlock",
+    "issues": "https://github.com/slxca/better-chestlock/issues"
+  },
+  "license": "MIT",
   "icon": "assets/better-chestlock/icon.png",
   "environment": "*",
   "entrypoints": {

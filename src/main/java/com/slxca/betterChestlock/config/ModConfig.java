@@ -1,4 +1,4 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.config;
 
 import java.io.IOException;
 import java.io.Reader;

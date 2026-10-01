@@ -1,4 +1,4 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.protection;
 
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
@@ -8,6 +8,7 @@ import java.util.Set;
 import java.util.UUID;
 
 import com.mojang.serialization.Codec;
+import com.slxca.betterChestlock.BetterChestlock;
 import net.minecraft.core.UUIDUtil;
 import net.minecraft.resources.Identifier;
 import net.minecraft.server.MinecraftServer;

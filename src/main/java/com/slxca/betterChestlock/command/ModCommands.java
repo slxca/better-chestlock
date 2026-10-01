@@ -1,6 +1,9 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.command;
+
+import java.util.UUID;
 
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
+import com.slxca.betterChestlock.protection.TrustData;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
 import net.minecraft.commands.CommandSourceStack;
 import net.minecraft.commands.Commands;
@@ -8,8 +11,6 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.server.MinecraftServer;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.server.players.NameAndId;
-
-import java.util.UUID;
 
 import static com.mojang.brigadier.arguments.StringArgumentType.getString;
 import static com.mojang.brigadier.arguments.StringArgumentType.word;
@@ -32,7 +33,7 @@ public class ModCommands {
 
     private static int info(CommandSourceStack source) throws CommandSyntaxException {
         ServerPlayer player = source.getPlayerOrException();
-        ChestInfoRequests.add(player.getUUID());
+        ChestInfo.addPending(player.getUUID());
         source.sendSuccess(() -> Component.translatable("message.better-chestlock.info_click"), false);
         return 1;
     }
