@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "better-chestlock",
+  "version": "${version}",
+  "name": "better-chestlock",
+  "description": "",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/better-chestlock/icon.png",
+  "environment": "server",
+  "entrypoints": {
+    "fabric-datagen": [
+      "com.slxca.betterChestlock.client.BetterChestlockDataGenerator"
+    ],
+    "main": [
+      "com.slxca.betterChestlock.BetterChestlock"
+    ]
+  },
+  "mixins": [
+    "better-chestlock.mixins.json",
+    {
+      "config": "better-chestlock.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric-api": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
