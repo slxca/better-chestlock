@@ -15,5 +15,6 @@ public class BetterChestlock implements ModInitializer {
         ModItems.init();
         ModBlockEntityTypes.init();
         ModCreativeTabs.register();
+        LockedChestProtection.register();
     }
 }

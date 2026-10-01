@@ -1,4 +1,6 @@
 {
   "block.better-chestlock.locked_chest": "Locked Chest",
-  "item.better-chestlock.lock": "Lock"
+  "item.better-chestlock.lock": "Lock",
+  "message.better-chestlock.cant_break": "Only the owner can break this chest",
+  "message.better-chestlock.cant_open": "Only the owner can open this chest"
 }

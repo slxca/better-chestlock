@@ -18,5 +18,7 @@ public class EnglishLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModBlocks.LOCKED_CHEST, "Locked Chest");
         translationBuilder.add(ModItems.LOCK, "Lock");
+        translationBuilder.add("message.better-chestlock.cant_break", "Only the owner can break this chest");
+        translationBuilder.add("message.better-chestlock.cant_open", "Only the owner can open this chest");
     }
 }

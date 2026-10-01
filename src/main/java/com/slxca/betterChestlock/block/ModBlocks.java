@@ -23,6 +23,7 @@ public class ModBlocks {
                     .setId(ResourceKey.create(Registries.BLOCK, LOCKED_CHEST_ID))
                     .mapColor(MapColor.WOOD)
                     .strength(2.5f)
+                    .explosionResistance(3600000f)
                     .sound(SoundType.WOOD)));
 
     public static final Item LOCKED_CHEST_ITEM = Registry.register(

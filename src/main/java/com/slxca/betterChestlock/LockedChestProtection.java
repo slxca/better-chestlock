@@ -1,0 +1,37 @@
+package com.slxca.betterChestlock;
+
+import com.slxca.betterChestlock.block.entity.LockedChestBlockEntity;
+import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents;
+import net.minecraft.network.chat.Component;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.permissions.Permissions;
+import net.minecraft.world.entity.player.Player;
+
+public class LockedChestProtection {
+
+    private static final String CANT_BREAK_KEY = "message.better-chestlock.cant_break";
+
+    public static void register() {
+        PlayerBlockBreakEvents.BEFORE.register((world, player, pos, state, blockEntity) -> {
+            if (!(blockEntity instanceof LockedChestBlockEntity lockedChest)) {
+                return true;
+            }
+
+            if (canAccess(lockedChest, player)) {
+                return true;
+            }
+
+            player.sendOverlayMessage(Component.translatable(CANT_BREAK_KEY));
+            return false;
+        });
+    }
+
+    public static boolean canAccess(LockedChestBlockEntity lockedChest, Player player) {
+        return isOperator(player) || lockedChest.isOwner(player);
+    }
+
+    private static boolean isOperator(Player player) {
+        return player instanceof ServerPlayer serverPlayer
+                && serverPlayer.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER);
+    }
+}

@@ -1,4 +1,6 @@
 {
   "block.better-chestlock.locked_chest": "Verschlossene Truhe",
-  "item.better-chestlock.lock": "Schloss"
+  "item.better-chestlock.lock": "Schloss",
+  "message.better-chestlock.cant_break": "Nur der Besitzer kann diese Truhe zerstören",
+  "message.better-chestlock.cant_open": "Nur der Besitzer kann diese Truhe öffnen"
 }

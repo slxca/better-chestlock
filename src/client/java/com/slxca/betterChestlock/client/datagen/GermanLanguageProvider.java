@@ -18,5 +18,7 @@ public class GermanLanguageProvider extends FabricLanguageProvider {
     public void generateTranslations(HolderLookup.Provider registryLookup, TranslationBuilder translationBuilder) {
         translationBuilder.add(ModBlocks.LOCKED_CHEST, "Verschlossene Truhe");
         translationBuilder.add(ModItems.LOCK, "Schloss");
+        translationBuilder.add("message.better-chestlock.cant_break", "Nur der Besitzer kann diese Truhe zerstören");
+        translationBuilder.add("message.better-chestlock.cant_open", "Nur der Besitzer kann diese Truhe öffnen");
     }
 }
