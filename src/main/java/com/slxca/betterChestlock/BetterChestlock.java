@@ -11,6 +11,7 @@ public class BetterChestlock implements ModInitializer {
 
     @Override
     public void onInitialize() {
+        ModConfig.load();
         ModBlocks.init();
         ModItems.init();
         ModBlockEntityTypes.init();

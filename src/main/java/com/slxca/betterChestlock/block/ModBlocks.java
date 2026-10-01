@@ -1,6 +1,7 @@
 package com.slxca.betterChestlock.block;
 
 import com.slxca.betterChestlock.BetterChestlock;
+import com.slxca.betterChestlock.ModConfig;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
@@ -23,7 +24,7 @@ public class ModBlocks {
                     .setId(ResourceKey.create(Registries.BLOCK, LOCKED_CHEST_ID))
                     .mapColor(MapColor.WOOD)
                     .strength(2.5f)
-                    .explosionResistance(3600000f)
+                    .explosionResistance(ModConfig.INSTANCE.allowExplosions ? 2.5f : 3600000f)
                     .sound(SoundType.WOOD)));
 
     public static final Item LOCKED_CHEST_ITEM = Registry.register(

@@ -29,25 +29,26 @@ public class LockedChestProtection {
         });
     }
 
-    public static boolean canAccess(LockedChestBlockEntity lockedChest, Player player) {
-        return isOperator(player) || lockedChest.isOwner(player) || isTrusted(lockedChest, player);
+public static boolean canAccess(LockedChestBlockEntity lockedChest, Player player) {
+    return isOperator(player) || lockedChest.isOwner(player) || isTrusted(lockedChest, player);
+}
+
+private static boolean isTrusted(LockedChestBlockEntity lockedChest, Player player) {
+    if (!(lockedChest.getLevel() instanceof ServerLevel serverLevel)) {
+        return false;
     }
 
-    private static boolean isTrusted(LockedChestBlockEntity lockedChest, Player player) {
-        if (!(lockedChest.getLevel() instanceof ServerLevel serverLevel)) {
-            return false;
-        }
-
-        UUID owner = lockedChest.getOwner();
-        if (owner == null) {
-            return false;
-        }
-
-        return TrustData.get(serverLevel.getServer()).isTrusted(owner, player.getUUID());
+    UUID owner = lockedChest.getOwner();
+    if (owner == null) {
+        return false;
     }
 
-    private static boolean isOperator(Player player) {
-        return player instanceof ServerPlayer serverPlayer
-                && serverPlayer.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER);
-    }
+    return TrustData.get(serverLevel.getServer()).isTrusted(owner, player.getUUID());
+}
+
+private static boolean isOperator(Player player) {
+    return ModConfig.INSTANCE.opBypass
+            && player instanceof ServerPlayer serverPlayer
+            && serverPlayer.permissions().hasPermission(Permissions.COMMANDS_GAMEMASTER);
+}
 }
