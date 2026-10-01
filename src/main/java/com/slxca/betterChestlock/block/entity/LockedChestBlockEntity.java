@@ -1,4 +1,4 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.block.entity;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.block.entity.ChestBlockEntity;

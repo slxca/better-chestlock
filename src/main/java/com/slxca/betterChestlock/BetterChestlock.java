@@ -1,12 +1,9 @@
 package com.slxca.betterChestlock;
 
+import com.slxca.betterChestlock.block.ModBlocks;
+import com.slxca.betterChestlock.block.entity.ModBlockEntityTypes;
+import com.slxca.betterChestlock.item.ModItems;
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.Identifier;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.ItemStack;
 
 public class BetterChestlock implements ModInitializer {
 
@@ -17,13 +14,6 @@ public class BetterChestlock implements ModInitializer {
         ModBlocks.init();
         ModItems.init();
         ModBlockEntityTypes.init();
-
-        CreativeModeTabEvents.modifyOutputEvent(
-                ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.withDefaultNamespace("functional_blocks")))
-                .register(output -> output.accept(new ItemStack(ModBlocks.LOCKED_CHEST)));
-
-        CreativeModeTabEvents.modifyOutputEvent(
-                ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.withDefaultNamespace("ingredients")))
-                .register(output -> output.accept(new ItemStack(ModItems.LOCK)));
+        ModCreativeTabs.register();
     }
 }

@@ -6,8 +6,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.slxca.betterChestlock.ModBlockEntityTypes;
-import com.slxca.betterChestlock.client.LockedChestBlockEntityRenderer;
+import com.slxca.betterChestlock.block.entity.ModBlockEntityTypes;
+import com.slxca.betterChestlock.client.block.entity.LockedChestBlockEntityRenderer;
 import net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider;
 import net.minecraft.client.renderer.blockentity.BlockEntityRenderers;
 import net.minecraft.client.renderer.blockentity.state.BlockEntityRenderState;

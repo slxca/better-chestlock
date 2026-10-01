@@ -1,8 +1,9 @@
-package com.slxca.betterChestlock.client;
+package com.slxca.betterChestlock.client.block.entity;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 
-import com.slxca.betterChestlock.LockedChestBlockEntity;
+import com.slxca.betterChestlock.BetterChestlock;
+import com.slxca.betterChestlock.block.entity.LockedChestBlockEntity;
 import net.minecraft.client.model.object.chest.ChestModel;
 import net.minecraft.client.renderer.MultiblockChestResources;
 import net.minecraft.client.renderer.OrderedSubmitNodeCollector;
@@ -35,7 +36,7 @@ public class LockedChestBlockEntityRenderer extends ChestRenderer<LockedChestBlo
     }
 
     private static SpriteId sprite(String path) {
-        return Sheets.CHEST_MAPPER.apply(Identifier.fromNamespaceAndPath("better-chestlock", path));
+        return Sheets.CHEST_MAPPER.apply(Identifier.fromNamespaceAndPath(BetterChestlock.MOD_ID, path));
     }
 
     @Override

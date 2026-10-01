@@ -1,4 +1,23 @@
+# IntelliJ IDEA
 /.idea/
-/run/
+*.iml
+*.ipr
+*.iws
+
+# VS Code
+/.vscode/
+
+# macOS
+.DS_Store
+
+# Gradle
 /.gradle/
 /build/
+/out/
+
+# Java
+*.class
+
+# Fabric / Minecraft
+/run/
+/src/main/generated/.cache/

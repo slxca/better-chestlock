@@ -1,5 +1,6 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.block;
 
+import com.slxca.betterChestlock.BetterChestlock;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;

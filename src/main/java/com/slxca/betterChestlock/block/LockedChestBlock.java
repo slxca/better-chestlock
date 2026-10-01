@@ -1,5 +1,7 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.block;
 
+import com.slxca.betterChestlock.block.entity.LockedChestBlockEntity;
+import com.slxca.betterChestlock.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.level.block.ChestBlock;

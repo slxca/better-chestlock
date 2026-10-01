@@ -1,10 +1,10 @@
-package com.slxca.betterChestlock;
+package com.slxca.betterChestlock.block.entity;
 
 import java.util.Set;
 
+import com.slxca.betterChestlock.block.ModBlocks;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.block.entity.BlockEntityType;
 
 public class ModBlockEntityTypes {
