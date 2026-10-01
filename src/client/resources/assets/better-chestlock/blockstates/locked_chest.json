@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "better-chestlock:block/locked_chest"
+    }
+  }
+}

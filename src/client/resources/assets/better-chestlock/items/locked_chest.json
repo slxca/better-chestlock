@@ -1,0 +1,10 @@
+{
+  "model": {
+    "type": "minecraft:special",
+    "base": "better-chestlock:item/locked_chest",
+    "model": {
+      "type": "minecraft:chest",
+      "texture": "better-chestlock:locked_normal"
+    }
+  }
+}
