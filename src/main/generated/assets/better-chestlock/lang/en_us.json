@@ -1,3 +1,4 @@
 {
-  "block.better-chestlock.locked_chest": "Locked Chest"
+  "block.better-chestlock.locked_chest": "Locked Chest",
+  "item.better-chestlock.lock": "Lock"
 }

@@ -15,10 +15,15 @@ public class BetterChestlock implements ModInitializer {
     @Override
     public void onInitialize() {
         ModBlocks.init();
+        ModItems.init();
         ModBlockEntityTypes.init();
 
         CreativeModeTabEvents.modifyOutputEvent(
                 ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.withDefaultNamespace("functional_blocks")))
                 .register(output -> output.accept(new ItemStack(ModBlocks.LOCKED_CHEST)));
+
+        CreativeModeTabEvents.modifyOutputEvent(
+                ResourceKey.create(Registries.CREATIVE_MODE_TAB, Identifier.withDefaultNamespace("ingredients")))
+                .register(output -> output.accept(new ItemStack(ModItems.LOCK)));
     }
 }
