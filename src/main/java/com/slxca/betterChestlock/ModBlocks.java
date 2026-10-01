@@ -28,7 +28,8 @@ public class ModBlocks {
             BuiltInRegistries.ITEM,
             LOCKED_CHEST_ID,
             new BlockItem(LOCKED_CHEST, new Item.Properties()
-                    .setId(ResourceKey.create(Registries.ITEM, LOCKED_CHEST_ID))));
+                    .setId(ResourceKey.create(Registries.ITEM, LOCKED_CHEST_ID))
+                    .useBlockDescriptionPrefix()));
 
     public static void init() {
     }
