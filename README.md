@@ -93,6 +93,12 @@ The built jar will be at `build/libs/better-chestlock-<version>.jar`.
 
 ---
 
+## 🤝 Contributing
+
+See [CONTRIBUTING.md](.github/CONTRIBUTING.md) for build instructions, code style and how to add translations.
+
+---
+
 ## 📄 License
 
 This project is licensed under the [MIT License](LICENSE.txt). Copyright (c) 2026 slxca.
