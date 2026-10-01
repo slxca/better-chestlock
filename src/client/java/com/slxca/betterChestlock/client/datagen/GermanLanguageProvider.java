@@ -20,5 +20,14 @@ public class GermanLanguageProvider extends FabricLanguageProvider {
         translationBuilder.add(ModItems.LOCK, "Schloss");
         translationBuilder.add("message.better-chestlock.cant_break", "Nur der Besitzer kann diese Truhe zerstören");
         translationBuilder.add("message.better-chestlock.cant_open", "Nur der Besitzer kann diese Truhe öffnen");
+        translationBuilder.add("message.better-chestlock.info_click", "Klicke eine verschlossene Truhe rechts an, um ihre Informationen zu sehen.");
+        translationBuilder.add("message.better-chestlock.info_title", "Verschlossene Truhe");
+        translationBuilder.add("message.better-chestlock.info_owner", "Besitzer: %s");
+        translationBuilder.add("message.better-chestlock.info_trusted", "Vertraut: %s");
+        translationBuilder.add("message.better-chestlock.info_trusted_none", "Vertraut: Keiner");
+        translationBuilder.add("message.better-chestlock.trusted", "Du hast %s Zugriff auf alle deine verschlossenen Truhen gegeben.");
+        translationBuilder.add("message.better-chestlock.untrusted", "Du hast %s von deiner Trust-Liste entfernt.");
+        translationBuilder.add("message.better-chestlock.player_not_found", "Spieler nicht gefunden.");
+        translationBuilder.add("message.better-chestlock.cannot_trust_self", "Du kannst dir nicht selbst vertrauen.");
     }
 }

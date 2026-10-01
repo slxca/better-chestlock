@@ -1,11 +1,21 @@
 package com.slxca.betterChestlock.block;
 
+import java.util.List;
+import java.util.UUID;
+import java.util.stream.Collectors;
+
+import com.slxca.betterChestlock.ChestInfoRequests;
 import com.slxca.betterChestlock.LockedChestProtection;
+import com.slxca.betterChestlock.TrustData;
 import com.slxca.betterChestlock.block.entity.LockedChestBlockEntity;
 import com.slxca.betterChestlock.block.entity.ModBlockEntityTypes;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.network.chat.Component;
+import net.minecraft.server.MinecraftServer;
+import net.minecraft.server.level.ServerLevel;
+import net.minecraft.server.level.ServerPlayer;
+import net.minecraft.server.players.NameAndId;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.SimpleContainer;
@@ -60,12 +70,47 @@ public class LockedChestBlock extends ChestBlock implements WorldlyContainerHold
 
     @Override
     protected InteractionResult useWithoutItem(BlockState state, Level level, BlockPos pos, Player player, BlockHitResult hitResult) {
-        if (level.getBlockEntity(pos) instanceof LockedChestBlockEntity lockedChest
-                && !LockedChestProtection.canAccess(lockedChest, player)) {
-            player.sendOverlayMessage(Component.translatable(CANT_OPEN_KEY));
-            return InteractionResult.FAIL;
+        if (level.getBlockEntity(pos) instanceof LockedChestBlockEntity lockedChest) {
+            if (level instanceof ServerLevel serverLevel && ChestInfoRequests.consume(player.getUUID())) {
+                showInfo(player, lockedChest, serverLevel.getServer());
+                return InteractionResult.SUCCESS;
+            }
+
+            if (level instanceof ServerLevel && !LockedChestProtection.canAccess(lockedChest, player)) {
+                player.sendOverlayMessage(Component.translatable(CANT_OPEN_KEY));
+                return InteractionResult.FAIL;
+            }
         }
         return super.useWithoutItem(state, level, pos, player, hitResult);
+    }
+
+    private static void showInfo(Player player, LockedChestBlockEntity chest, MinecraftServer server) {
+        UUID ownerUuid = chest.getOwner();
+        player.sendSystemMessage(Component.translatable("message.better-chestlock.info_title"));
+
+        if (ownerUuid == null) {
+            player.sendSystemMessage(Component.translatable("message.better-chestlock.info_owner", "?"));
+            return;
+        }
+
+        String ownerName = resolveName(server, ownerUuid);
+        player.sendSystemMessage(Component.translatable("message.better-chestlock.info_owner", ownerName));
+
+        List<UUID> trusted = TrustData.get(server).getTrusted(ownerUuid);
+        if (trusted.isEmpty()) {
+            player.sendSystemMessage(Component.translatable("message.better-chestlock.info_trusted_none"));
+        } else {
+            String names = trusted.stream().map(id -> resolveName(server, id)).collect(Collectors.joining(", "));
+            player.sendSystemMessage(Component.translatable("message.better-chestlock.info_trusted", names));
+        }
+    }
+
+    private static String resolveName(MinecraftServer server, UUID uuid) {
+        ServerPlayer online = server.getPlayerList().getPlayersByUUID().get(uuid);
+        if (online != null) {
+            return online.getGameProfile().name();
+        }
+        return server.services().nameToIdCache().get(uuid).map(NameAndId::name).orElse(uuid.toString());
     }
 
     private static class EmptyWorldlyContainer extends SimpleContainer implements WorldlyContainer {

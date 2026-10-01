@@ -1,6 +1,15 @@
 {
   "block.better-chestlock.locked_chest": "Verschlossene Truhe",
   "item.better-chestlock.lock": "Schloss",
+  "message.better-chestlock.cannot_trust_self": "Du kannst dir nicht selbst vertrauen.",
   "message.better-chestlock.cant_break": "Nur der Besitzer kann diese Truhe zerstören",
-  "message.better-chestlock.cant_open": "Nur der Besitzer kann diese Truhe öffnen"
+  "message.better-chestlock.cant_open": "Nur der Besitzer kann diese Truhe öffnen",
+  "message.better-chestlock.info_click": "Klicke eine verschlossene Truhe rechts an, um ihre Informationen zu sehen.",
+  "message.better-chestlock.info_owner": "Besitzer: %s",
+  "message.better-chestlock.info_title": "Verschlossene Truhe",
+  "message.better-chestlock.info_trusted": "Vertraut: %s",
+  "message.better-chestlock.info_trusted_none": "Vertraut: Keiner",
+  "message.better-chestlock.player_not_found": "Spieler nicht gefunden.",
+  "message.better-chestlock.trusted": "Du hast %s Zugriff auf alle deine verschlossenen Truhen gegeben.",
+  "message.better-chestlock.untrusted": "Du hast %s von deiner Trust-Liste entfernt."
 }

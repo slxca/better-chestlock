@@ -1,6 +1,15 @@
 {
   "block.better-chestlock.locked_chest": "Locked Chest",
   "item.better-chestlock.lock": "Lock",
+  "message.better-chestlock.cannot_trust_self": "You cannot trust yourself.",
   "message.better-chestlock.cant_break": "Only the owner can break this chest",
-  "message.better-chestlock.cant_open": "Only the owner can open this chest"
+  "message.better-chestlock.cant_open": "Only the owner can open this chest",
+  "message.better-chestlock.info_click": "Right-click a locked chest to view its info.",
+  "message.better-chestlock.info_owner": "Owner: %s",
+  "message.better-chestlock.info_title": "Locked Chest",
+  "message.better-chestlock.info_trusted": "Trusted: %s",
+  "message.better-chestlock.info_trusted_none": "Trusted: None",
+  "message.better-chestlock.player_not_found": "Player not found.",
+  "message.better-chestlock.trusted": "You trusted %s on all your locked chests.",
+  "message.better-chestlock.untrusted": "You removed %s from your locked chest trust list."
 }
